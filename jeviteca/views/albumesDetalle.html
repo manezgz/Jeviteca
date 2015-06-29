@@ -1,0 +1,43 @@
+<article>
+    <header>
+        <div class="row">
+            <div class="col-md-2">
+                <img ng-src="{{album.image | imagenes}}" class="img-rounded" width="165" height="242"/>
+            </div>
+            <div class="col-md-10">
+                <h3>{{album.title}}</h3>
+                <div class="credits-dock ng-scope">
+                    <div class="ng-scope">
+                        <strong>Banda&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  </strong>
+                        <span class="label label-primary">{{album.band.name}}</span>
+                    </div>
+                    <div class="ng-scope">
+                        <strong>Genero&nbsp;&nbsp;&nbsp;</strong>
+                        <span class="label label-danger">{{album.genre.name}}</span>
+                    </div>
+                    <div class="ng-scope">
+                        <strong>Año&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+                        {{album.year}}
+                    </div>
+                    <div class="ng-scope">
+                        <strong>Favorito&nbsp;</strong>
+                        <span ng-class="{'label label-success': favService.favorite(album.id,'ALBUM'), 'label label-warning': favService.noFavorite(album.id,'ALBUM')}">{{album.favorite}}</span>
+                    </div>
+                    <div class="ng-scope">
+                        <table class="table table-striped">
+                            <tr rating-item model="album" max="5"></tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="bs-callout bs-callout-primary">
+        <h4>Tracklist</h4>
+        <table class="table table-striped">
+            <tbody>
+            <tr tracklist-item ng-repeat="song in album.tracklist"  band="album.band.name" song="song">
+            </tbody>
+        </table>
+    </div>
+</article>

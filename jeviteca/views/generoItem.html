@@ -1,0 +1,12 @@
+<div class="bs-callout bs-callout-primary">
+    <h4> {{model.name}}
+    <span ng-class="{ 'glyphicon glyphicon-star-empty': favoriteProvider.noFavorite(model.name,'GENERO'), 'glyphicon glyphicon-star': favoriteProvider.favorite(model.name,'GENERO')}" ng-click="favoriteProvider.changeFav(model.name,'GENERO')" aria-hidden="true"></span>
+    </h4>
+    <table class="table table-striped">
+        <table class="table table-striped">
+            <tbody>
+            <tr album-item  template="simpleAlbum2" ng-repeat="album in model.albums"  model="album">
+            </tbody>
+        </table>
+    </table>
+</div>

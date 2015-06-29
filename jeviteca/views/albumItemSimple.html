@@ -1,0 +1,17 @@
+<tr>
+    <td>
+        <a href="" ng-click="verDetalle(model.id)">{{ model.title }}</a>
+    </td>
+    <td>
+         <span class="label label-success">
+            {{model.genre.name}}
+        </span>
+    </td>
+    <td>Released in {{ model.year}}</td>
+    <td>
+        <!--<span ng-hide="FavoritesProvider.hasLocalStorage()" class="ng-hide">Local Storage not supported</span>-->
+        <span ng-class="{ 'glyphicon glyphicon-star-empty': favoriteProvider.noFavorite(model.id,'ALBUM'), 'glyphicon glyphicon-star': favoriteProvider.favorite(model.id,'ALBUM')}" ng-click="favoriteProvider.changeFav(model.id,'ALBUM')" aria-hidden="true"></span>
+    </td>
+
+
+</tr>

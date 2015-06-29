@@ -1,0 +1,44 @@
+<article>
+    <header>
+        <div class="row">
+            <div class="col-md-1">
+                <h3>{{banda.name}}</h3>
+                <div class="credits-dock ng-scope">
+                    <div class="ng-scope">
+                        <strong>Banda&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  </strong>
+                        <span class="label label-primary">{{banda.name}}</span>
+                    </div>
+                    <div class="ng-scope">
+                        <strong>Origen&nbsp;&nbsp;&nbsp;</strong>
+                        <span class="label label-danger">{{banda.origin}}</span>
+                    </div>
+                    <div class="ng-scope">
+                        <strong>Favorito&nbsp;</strong>
+                        <span ng-class="{'label label-success': favService.favorite(banda.name,'BANDA'), 'label label-warning': favService.noFavorite(banda.name,'BANDA')}">{{banda.favorite}}</span>
+                    </div>
+                    <div class="ng-scope">
+                        <strong>Wiki Link&nbsp;</strong>
+                        <a ng-href="{{ wikipediaLink(banda.name) }}" ng-click="">link</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="bs-callout bs-callout-primary">
+        <h4>Componentes</h4>
+        <table class="table table-striped">
+            <tbody>
+            <tr member-item ng-repeat="member in banda.members"  model="member">
+            </tbody>
+        </table>
+    </div>
+    <div class="bs-callout bs-callout-success">
+        <h4>Albumes</h4>
+        <table class="table table-striped">
+            <tbody>
+            <tr album-item  template="simpleAlbum" ng-repeat="album in banda.albums"  model="album">
+            </tbody>
+        </table>
+    </div>
+</article>

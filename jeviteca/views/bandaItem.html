@@ -1,0 +1,20 @@
+<tr>
+
+    <td>
+        <a href="" ng-click="verDetalle(model.name)">{{ model.name }}</a>
+    </td>
+    <td>
+        <span class="label label-primary">
+            {{model.origin}}
+        </span>
+    </td>
+    <td>
+        <ul class="list-unstyled">
+            <li member-item ng-repeat="member in model.members" template="memberItemList" model="member"></li>
+        </ul>
+    </td>
+    <td>
+        <!--<span ng-hide="FavoritesProvider.hasLocalStorage()" class="ng-hide">Local Storage not supported</span>-->
+        <span ng-class="{ 'glyphicon glyphicon-star-empty': favoriteProvider.noFavorite(model.name,'BANDA'), 'glyphicon glyphicon-star': favoriteProvider.favorite(model.name,'BANDA')}" ng-click="favoriteProvider.changeFav(model.name,'BANDA')" aria-hidden="true"></span>
+    </td>
+</tr>

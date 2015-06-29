@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html ng-app="jeviteca">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Jeviteca</title>
+    <script src="vendor/angular.min.js"></script>
+    <script src="vendor/angular-route.min.js"></script>
+    <script src="vendor/angular-route-segment.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/filters/ImagenesFilter.js"></script>
+    <script src="scripts/filters/CancionesAlbum.js"></script>
+    <script src="scripts/controllers/SearchCtrl.js"></script>
+    <script src="scripts/controllers/AlbumesCtrl.js"></script>
+    <script src="scripts/controllers/AlbumesDetalleCtrl.js"></script>
+    <script src="scripts/controllers/BandasCtrl.js"></script>
+    <script src="scripts/controllers/NavegacionCtrl.js"></script>
+    <script src="scripts/controllers/BandasDetalleCtrl.js"></script>
+    <script src="scripts/controllers/BandasCtrl.js"></script>
+    <script src="scripts/controllers/GenerosCtrl.js"></script>
+    <script src="scripts/services/RatingProvider.js"></script>
+    <script src="scripts/services/AlbumesProvider.js"></script>
+    <script src="scripts/services/FavoritesProvider.js"></script>
+    <script src="scripts/services/BandasProvider.js"></script>
+    <script src="scripts/services/GenerosProvider.js"></script>
+    <script src="scripts/directives/AlbumItem.js"></script>
+    <script src="scripts/directives/MemberItem.js"></script>
+    <script src="scripts/directives/GeneroItem.js"></script>
+    <script src="scripts/directives/TrackListItem.js"></script>
+    <script src="scripts/directives/BandaItem.js"></script>
+    <script src="scripts/directives/RatingItem.js"></script>
+    <link rel="stylesheet" href="styles/bootstrap.css">
+    <link rel="stylesheet" href="styles/font-awesome.css" />
+    <link rel="stylesheet" href="styles/app.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Jeviteca</h1>
+        </header>
+        <div ng-controller="NavegacionCtrl">
+            <nav>
+                <ul class="nav nav-tabs">
+                    <li ng-class="{'active': rutaEsAlbumes()}">
+                        <a href="#/albumes" ng-click="limpiaSearchField()">Albumes</a>
+                    </li>
+                    <li ng-class="{'active': rutaEsBandas()}">
+                        <a href="#/bandas" ng-click="limpiaSearchField()">Bandas</a>
+                    </li>
+                    <li ng-class="{'active': rutaEsGeneros()}">
+                        <a href="#/generos" ng-click="limpiaSearchField()">Generos</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="movies-search-box">
+                <form>
+                    <div class="input-group input-group-sm">
+                        <input ng-model="searchInput" type="text" class="form-control">
+                            <span class="input-group-btn">
+                                <button ng-click="doSearch()" class="btn btn-primary">Buscar</button>
+                            </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <section app-view-segment="0"></section>
+    </div>
+
+
+</body>
+</html>
